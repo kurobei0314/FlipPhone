@@ -6,19 +6,20 @@ using System;
 
 public class FlipButtonPresenter : MonoBehaviour
 {
-    [SerializeField] private FlipButtonView[] _flipButtonViews;
+    [SerializeField] private FlipButtonViews _flipButtonViews;
     [SerializeField] private TypingLettersModel _typingLettersModel;
+    [SerializeField] private CurrentLettersTextView _currentLettersTextView;
 
     public void Start()
     {
-        foreach (var flipButtonView in _flipButtonViews)
-        {
-            flipButtonView.OnClickObservable
-                .Subscribe (typeNum => {
-                    SetLetter(typeNum);
-                })
-                .AddTo(flipButtonView.gameObject);
-        }
-    }
+        _flipButtonViews.OnClickObservable
+            .Subscribe(type => {
+                _typingLettersModel.UpdateLetters(type);
+            }).AddTo(_flipButtonViews.gameObject);
 
+        _typingLettersModel.OnChangeLettersObservable
+            .Subscribe(letters => {
+                _currentLettersTextView.UpdateCurrentLettersText(letters);
+        }).AddTo(_flipButtonViews.gameObject);
+    }
 }

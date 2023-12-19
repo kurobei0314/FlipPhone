@@ -7,11 +7,11 @@ using UniRx;
 
 public class FlipButtonView : MonoBehaviour
 {
-    private Subject<int> onClickSubject = new Subject<int>();
-    public IObservable<int> OnClickObservable => onClickSubject;
+    private Subject<string> onClickItemSubject = new Subject<string>();
+    public IObservable<string> OnClickItemObservable => onClickItemSubject;
 
-    public void OnClick(int num)
+    public void OnClick(string type)
     {
-        onClickSubject.OnNext(num);
+        onClickItemSubject.OnNext(type);
     }
 }
