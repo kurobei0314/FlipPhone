@@ -9,6 +9,8 @@ public class FlipButtonPresenter : MonoBehaviour
     [SerializeField] private FlipButtonViews _flipButtonViews;
     [SerializeField] private TypingLettersModel _typingLettersModel;
     [SerializeField] private CurrentLettersTextView _currentLettersTextView;
+    [SerializeField] private OriginalLettersModel _originalLettersModel;
+    [SerializeField] private SendButtonView _sendButtonView;
 
     public void Start()
     {
@@ -20,6 +22,7 @@ public class FlipButtonPresenter : MonoBehaviour
         _typingLettersModel.OnChangeLettersObservable
             .Subscribe(letters => {
                 _currentLettersTextView.UpdateCurrentLettersText(letters);
+                _sendButtonView.UpdateInteractable(_originalLettersModel.IsSameCurrentLetters(letters));
         }).AddTo(_flipButtonViews.gameObject);
     }
 }
