@@ -8,9 +8,8 @@ public class OriginalLettersTextView : MonoBehaviour
     // TODO: 選択肢を選んで動かすときの初期化でtextも動的に変化するようにする
     [SerializeField] private TextMeshProUGUI _text;
 
-    // TODO: Startではなく初期化を呼ぶようにする
-    public void Start()
+    public void Initialize(string text)
     {
-        _text.text = "おはよう";
+        _text.text = text;
     }
 }
