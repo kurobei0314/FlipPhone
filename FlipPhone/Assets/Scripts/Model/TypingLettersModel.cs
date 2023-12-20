@@ -61,13 +61,19 @@ public class TypingLettersModel : MonoBehaviour
         }
         else
         {
-            if (IsSamePreType(type) || type == "*")
+            if (type == "del")
             {
                 _letters = _letters.Remove(_letters.Length - 1);
             }
-            var letter = GetLetter(type);
-            _letters = _letters + letter;
-            
+            else
+            {
+                if (IsSamePreType(type) || type == "*")
+                {
+                    _letters = _letters.Remove(_letters.Length - 1);
+                }
+                var letter = GetLetter(type);
+                _letters = _letters + letter;
+            }
         }
         onChangeLettersSubject.OnNext(_letters);
     }
@@ -93,6 +99,8 @@ public class TypingLettersModel : MonoBehaviour
         {
             case "*":
                 letter = GetDiacriticLetter(type);
+                break;
+            case "del":
                 break;
             default:
                 letter = GetUnDiacriticLetter(type);
