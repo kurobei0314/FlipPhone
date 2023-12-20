@@ -55,30 +55,34 @@ public class TypingLettersModel : MonoBehaviour
 
     public void UpdateLetters(string type)
     {
-        if (_letters.Length == 0)
+
+        if (type == "del")
         {
-            _letters = GetLetter(type);
+            _letters = RemoveLetter(_letters);
+            _prevType = type;
         }
         else
         {
-            if (type == "del")
+            if (IsSamePreType(type) || type == "*")
             {
-                _letters = _letters.Remove(_letters.Length - 1);
+                _letters = RemoveLetter(_letters);
             }
-            else
-            {
-                if (IsSamePreType(type) || type == "*")
-                {
-                    _letters = _letters.Remove(_letters.Length - 1);
-                }
-                var letter = GetLetter(type);
-                _letters = _letters + letter;
-            }
+            var letter = GetLetter(type);
+            _letters = _letters + letter;
         }
         onChangeLettersSubject.OnNext(_letters);
     }
 
     private bool IsSamePreType(string type) => _prevType == type;
+
+    private string RemoveLetter(string letters)
+    {
+        if (letters.Length != 0)
+        {
+            letters = letters.Remove(_letters.Length - 1);
+        }
+        return letters;
+    }
 
     private bool IsContainsKey(string type)
     {
