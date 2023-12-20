@@ -31,6 +31,12 @@ public class TypingLettersModel : MonoBehaviour
         { "7", new string[] { "ま", "み", "む", "め", "も" } },
         { "8", new string[] { "や", "ゆ", "よ" } },
         { "9", new string[] { "ら", "り", "る", "れ", "ろ" } },
+        { "00", new string[] { "ゎ", "わ" } },
+        { "10", new string[] { "ぁ", "あ" } },
+        { "11", new string[] { "ぃ", "い" } },
+        { "12", new string[] { "ぅ", "う" } },
+        { "13", new string[] { "ぇ", "え" } },
+        { "14", new string[] { "ぉ", "お" } },
         { "20", new string[] { "が", "か" } },
         { "21", new string[] { "ぎ", "き" } },
         { "22", new string[] { "ぐ", "く" } },
@@ -51,6 +57,9 @@ public class TypingLettersModel : MonoBehaviour
         { "62", new string[] { "ぶ", "ぷ", "ふ" } },
         { "63", new string[] { "べ", "ぺ", "へ" } },
         { "64", new string[] { "ぼ", "ぽ", "ほ" } },
+        { "80", new string[] { "ゃ", "や" } },
+        { "81", new string[] { "ゅ", "ゆ" } },
+        { "82", new string[] { "ょ", "よ" } },
     };
 
     public void UpdateLetters(string type)
