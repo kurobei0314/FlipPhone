@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MessageDTO : MonoBehaviour
+public class MessageDTO
 {
     private int id;
     public int Id => id;
