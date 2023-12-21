@@ -9,8 +9,8 @@ public class SendButtonView : MonoBehaviour
 {
     [SerializeField] private Button _button;
 
-    private Subject<int> onClickSendButtonSubject = new Subject<int>();
-    public IObservable<int> OnClickSendButtonObservable => onClickSendButtonSubject;
+    private Subject<Unit> onClickSendButtonSubject = new Subject<Unit>();
+    public IObservable<Unit> OnClickSendButtonObservable => onClickSendButtonSubject;
 
     public void Start()
     {
@@ -24,6 +24,6 @@ public class SendButtonView : MonoBehaviour
 
     public void OnClick()
     {
-        // onClickSendButtonSubject();
+        onClickSendButtonSubject.OnNext(Unit.Default);
     }
 }

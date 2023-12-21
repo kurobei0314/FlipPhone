@@ -486,7 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainGameRepository: {fileID: 67626006}
-  _sendButtonView: {fileID: 1769517945}
+  _sendButtonPresenter: {fileID: 615891481}
   _receiveLetterText: {fileID: 2039789}
   _selectionButtonModel: {fileID: 1279548255}
 --- !u!1 &491372375
@@ -681,6 +681,7 @@ GameObject:
   - component: {fileID: 615891478}
   - component: {fileID: 615891479}
   - component: {fileID: 615891480}
+  - component: {fileID: 615891481}
   m_Layer: 0
   m_Name: Presenter
   m_TagString: Untagged
@@ -737,6 +738,20 @@ MonoBehaviour:
   _originalLettersModel: {fileID: 1279548253}
   _nextStepNumModel: {fileID: 1279548254}
   _originalLettersTextView: {fileID: 2037169067}
+--- !u!114 &615891481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 615891477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76cbeece74d644c9db0ade5a87e3e72e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sendButtonView: {fileID: 1769517945}
+  _nextStepNumModel: {fileID: 1279548254}
 --- !u!224 &618471447 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8052412597571851406, guid: aff0c5974bc4d4ae08e3c2aad50e5e8f, type: 3}
@@ -1269,7 +1284,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1769517943}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1769517945}
+        m_TargetAssemblyTypeName: SendButtonView, Assembly-CSharp
+        m_MethodName: OnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1769517943
 MonoBehaviour:
   m_ObjectHideFlags: 0

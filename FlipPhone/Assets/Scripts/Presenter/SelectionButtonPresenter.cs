@@ -15,7 +15,6 @@ public class SelectionButtonPresenter : MonoBehaviour
     void Awake()
     {
         _selectionButtonModel.InitializeButtonsObservable.Subscribe( _ => {
-            Debug.Log("wa--i");
             _selectionButtonViews.SetText(_selectionButtonModel.Messages);
         }).AddTo(this);
 

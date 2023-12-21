@@ -8,7 +8,7 @@ using System.Linq;
 public class MainGameController : MonoBehaviour
 {
     [SerializeField] private MainGameRepository _mainGameRepository = null;
-    [SerializeField] private SendButtonView _sendButtonView = null;
+    [SerializeField] private SendButtonPresenter _sendButtonPresenter = null;
     [SerializeField] private ReceiveLetterTextView _receiveLetterText = null;
 
     [SerializeField] private SelectionButtonModel _selectionButtonModel;
@@ -16,7 +16,8 @@ public class MainGameController : MonoBehaviour
 
     void Start()
     {
-        _sendButtonView.OnClickSendButtonObservable.Subscribe(_ => {
+        _sendButtonPresenter.OnClickSendButtonObservable.Subscribe(step_num => {
+            currentId = step_num;
             MainGameLoop();
         });
 
@@ -28,6 +29,7 @@ public class MainGameController : MonoBehaviour
         for (var i = 0; i < 2; i++)
         {
             var currentMessage = _mainGameRepository.MessagesVO.FirstOrDefault(vo => vo.Id == currentId);
+            if (currentMessage == null) break;
             var currentMessageDTO = new MessageDTO(currentMessage);
             switch (currentMessage.Type)
             {
@@ -42,7 +44,6 @@ public class MainGameController : MonoBehaviour
                     InitializeSelections(currentMessageDTO);
                     break;
             }
-        // _selectionButtonViews
         }
     }
 
