@@ -12,7 +12,7 @@ public class FlipButtonPresenter : MonoBehaviour
     [SerializeField] private OriginalLettersModel _originalLettersModel;
     [SerializeField] private SendButtonView _sendButtonView;
 
-    public void Start()
+    public void Awake()
     {
         _flipButtonViews.OnClickObservable
             .Subscribe(type => {

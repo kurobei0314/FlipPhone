@@ -8,16 +8,24 @@ public class SelectionButtonViews : MonoBehaviour
 {
     [SerializeField] private SelectionButtonView[] _selectionButtonViews;
 
-    private Subject<string> onClickSubject = new Subject<string>();
-    public IObservable<string> OnClickObservable => onClickSubject;
+    private Subject<int> onClickSubject = new Subject<int>();
+    public IObservable<int> OnClickObservable => onClickSubject;
 
     void Start()
     {
         foreach (var selectionButtonView in _selectionButtonViews)
         {
-            selectionButtonView.OnClickItemObservable.Subscribe(text => {
-                onClickSubject.OnNext(text);
+            selectionButtonView.OnClickItemObservable.Subscribe(index => {
+                onClickSubject.OnNext(index);
             }).AddTo(selectionButtonView.gameObject);
+        }
+    }
+
+    public void SetText(string[] letters)
+    {
+        for (var i = 0; i < letters.Length; i++)
+        {
+            _selectionButtonViews[i].Initialize(letters[i]);
         }
     }
 }
