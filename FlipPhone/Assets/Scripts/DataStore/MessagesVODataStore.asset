@@ -33,7 +33,7 @@ MonoBehaviour:
   - id: 3
     type: 1
     message1: "\u671D\u306A\u3093\u3060\u306D"
-    step_num1: 0
+    step_num1: 6
     message2: 
     step_num2: 0
     message3: 
@@ -41,7 +41,7 @@ MonoBehaviour:
   - id: 4
     type: 1
     message1: "\u304A\u663C\u3060\u306D"
-    step_num1: 0
+    step_num1: 6
     message2: 
     step_num2: 0
     message3: 
@@ -49,8 +49,16 @@ MonoBehaviour:
   - id: 5
     type: 1
     message1: "\u591C\u3060\u306D"
-    step_num1: 0
+    step_num1: 6
     message2: 
     step_num2: 0
     message3: 
     step_num3: 0
+  - id: 6
+    type: 2
+    message1: "\u304A\u306F\u3088\u30462"
+    step_num1: 8
+    message2: "\u3053\u3093\u306B\u3061\u306F2"
+    step_num2: 9
+    message3: "\u3053\u3093\u3070\u3093\u306F2"
+    step_num3: 10

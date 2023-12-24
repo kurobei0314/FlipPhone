@@ -11,11 +11,16 @@ public class SelectionButtonPresenter : MonoBehaviour
     [SerializeField] private OriginalLettersModel _originalLettersModel;
     [SerializeField] private NextStepNumModel _nextStepNumModel;
     [SerializeField] private OriginalLettersTextView _originalLettersTextView;
+    [SerializeField] private PhoneWindowView _phoneWindowView;
+    [SerializeField] private LeftGroupView _leftGroupView;
+    [SerializeField] private CurrentLettersTextView _currentLettersTextView;
 
     void Awake()
     {
         _selectionButtonModel.InitializeButtonsObservable.Subscribe( _ => {
             _selectionButtonViews.SetText(_selectionButtonModel.Messages);
+            _phoneWindowView.InitializeAsReceiveView();
+            _leftGroupView.InitializeAsSelectionView();
         }).AddTo(this);
 
         _selectionButtonViews.OnClickObservable.Subscribe( index => {
@@ -25,6 +30,9 @@ public class SelectionButtonPresenter : MonoBehaviour
 
         _originalLettersModel.OriginalLetters.Subscribe( text => {
             _originalLettersTextView.Initialize(text);
+            _currentLettersTextView.Initialize();
+            _phoneWindowView.InitializeAsSendView();
+            _leftGroupView.InitializeAsOriginalLettersView();
         }).AddTo(this);
     }
 }

@@ -23,10 +23,7 @@ public class SelectionButtonViews : MonoBehaviour
 
     public void SelectionsSetActive(bool isActive)
     {
-        foreach (var selectionButtonView in _selectionButtonViews)
-        {
-            selectionButtonView.SetActiveGO(isActive);
-        }
+        this.gameObject.SetActive(isActive);
     }
 
     public void SetText(string[] letters)

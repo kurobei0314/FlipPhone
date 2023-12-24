@@ -120,7 +120,6 @@ public class TypingLettersModel : MonoBehaviour
                 break;
         }
         return letter;
-        Debug.Log("letter: "+ letter);
     }
 
     private string GetDiacriticLetter(string type)
