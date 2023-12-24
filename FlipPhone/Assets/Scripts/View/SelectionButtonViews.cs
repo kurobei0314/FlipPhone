@@ -21,6 +21,14 @@ public class SelectionButtonViews : MonoBehaviour
         }
     }
 
+    public void SelectionsSetActive(bool isActive)
+    {
+        foreach (var selectionButtonView in _selectionButtonViews)
+        {
+            selectionButtonView.SetActiveGO(isActive);
+        }
+    }
+
     public void SetText(string[] letters)
     {
         for (var i = 0; i < letters.Length; i++)

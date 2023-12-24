@@ -19,6 +19,11 @@ public class SelectionButtonView : MonoBehaviour
         _text.text = text;
     }
 
+    public void SetActiveGO(bool isActive)
+    {
+        this.gameObject.SetActive(isActive);
+    }
+
     public void OnClick(int index)
     {
         onClickItemSubject.OnNext(index);
