@@ -10,6 +10,8 @@ public class MainGameController : MonoBehaviour
     [SerializeField] private MainGameRepository _mainGameRepository = null;
     [SerializeField] private SendButtonPresenter _sendButtonPresenter = null;
     [SerializeField] private ReceiveLetterTextView _receiveLetterText = null;
+    [SerializeField] private ReceivingGroupView _receivingGroupView = null;
+    [SerializeField] private SendingGroupView _sendingGroupView = null;
 
     [SerializeField] private SelectionButtonModel _selectionButtonModel;
     private int currentId = 1;
@@ -17,8 +19,9 @@ public class MainGameController : MonoBehaviour
     void Start()
     {
         _sendButtonPresenter.OnClickSendButtonObservable.Subscribe(step_num => {
+
             currentId = step_num;
-            MainGameLoop();
+            _sendingGroupView.PlayAnim();
         });
 
         MainGameLoop();
@@ -36,6 +39,7 @@ public class MainGameController : MonoBehaviour
                 // 相手からの返信の時
                 case 1:
                     InitializeReceiveLetterText(currentMessageDTO);
+                    _receivingGroupView.PlayAnim();
                     currentId = currentMessageDTO.StepNums.FirstOrDefault();
                     break;
 
