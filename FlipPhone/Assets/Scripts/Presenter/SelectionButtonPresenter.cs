@@ -15,12 +15,14 @@ public class SelectionButtonPresenter : MonoBehaviour
     [SerializeField] private LeftGroupView _leftGroupView;
     [SerializeField] private CurrentLettersTextView _currentLettersTextView;
 
+    [SerializeField] private ReceivingGroupView _receivingGroupView;
+
     void Awake()
     {
         _selectionButtonModel.InitializeButtonsObservable.Subscribe( _ => {
             _selectionButtonViews.SetText(_selectionButtonModel.Messages);
             _phoneWindowView.InitializeAsReceiveView();
-            _leftGroupView.InitializeAsSelectionView();
+            _leftGroupView.OriginalLettersViewInActive();
         }).AddTo(this);
 
         _selectionButtonViews.OnClickObservable.Subscribe( index => {
@@ -34,5 +36,9 @@ public class SelectionButtonPresenter : MonoBehaviour
             _phoneWindowView.InitializeAsSendView();
             _leftGroupView.InitializeAsOriginalLettersView();
         }).AddTo(this);
+
+        _receivingGroupView.FinishAnimObservable.Subscribe(_ => {
+            _leftGroupView.SelectionViewActive();
+        });
     }
 }

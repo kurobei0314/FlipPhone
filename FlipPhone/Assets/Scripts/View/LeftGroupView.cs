@@ -13,9 +13,13 @@ public class LeftGroupView : MonoBehaviour
         _selectionGroup.SetActive(false);
     }
 
-    public void InitializeAsSelectionView()
+    public void OriginalLettersViewInActive()
     {
         _originalLettersGroup.SetActive(false);
+    }
+
+    public void SelectionViewActive()
+    {
         _selectionGroup.SetActive(true);
     }
 }

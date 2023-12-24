@@ -21,10 +21,12 @@ public class MainGameController : MonoBehaviour
         _sendButtonPresenter.OnClickSendButtonObservable.Subscribe(step_num => {
 
             currentId = step_num;
-            _sendingGroupView.PlayAnim();
+            StartCoroutine("PlaySendAnim");
+            MainGameLoop();
         });
 
         MainGameLoop();
+        _receivingGroupView.PlayAnim();
     }
 
     public void MainGameLoop()
@@ -39,7 +41,6 @@ public class MainGameController : MonoBehaviour
                 // 相手からの返信の時
                 case 1:
                     InitializeReceiveLetterText(currentMessageDTO);
-                    _receivingGroupView.PlayAnim();
                     currentId = currentMessageDTO.StepNums.FirstOrDefault();
                     break;
 
@@ -49,6 +50,13 @@ public class MainGameController : MonoBehaviour
                     break;
             }
         }
+    }
+
+    private IEnumerator PlaySendAnim()
+    {
+        _sendingGroupView.PlayAnim();
+        yield return new WaitForSeconds(0.7f);
+        _receivingGroupView.PlayAnim();
     }
 
     private void InitializeReceiveLetterText(MessageDTO currentMessageDTO)
