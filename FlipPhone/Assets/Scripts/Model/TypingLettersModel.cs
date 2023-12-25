@@ -49,7 +49,7 @@ public class TypingLettersModel : MonoBehaviour
         { "34", new string[] { "ぞ", "そ" } },
         { "40", new string[] { "だ", "た" } },
         { "41", new string[] { "ぢ", "ち" } },
-        { "42", new string[] { "づ", "つ" } },
+        { "42", new string[] { "っ", "づ", "つ" } },
         { "43", new string[] { "で", "て" } },
         { "44", new string[] { "ど", "と" } },
         { "60", new string[] { "ば", "ぱ", "は" } },
