@@ -2347,6 +2347,7 @@ MonoBehaviour:
   _leftGroupView: {fileID: 2066566999}
   _currentLettersTextView: {fileID: 1819261248}
   _receivingGroupView: {fileID: 354593993}
+  _typingLettersModel: {fileID: 1279548251}
 --- !u!114 &615891481
 MonoBehaviour:
   m_ObjectHideFlags: 0
