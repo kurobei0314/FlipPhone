@@ -14,8 +14,8 @@ public class SelectionButtonPresenter : MonoBehaviour
     [SerializeField] private PhoneWindowView _phoneWindowView;
     [SerializeField] private LeftGroupView _leftGroupView;
     [SerializeField] private CurrentLettersTextView _currentLettersTextView;
-
     [SerializeField] private ReceivingGroupView _receivingGroupView;
+    [SerializeField] private TypingLettersModel _typingLettersModel;
 
     void Awake()
     {
@@ -32,6 +32,7 @@ public class SelectionButtonPresenter : MonoBehaviour
 
         _originalLettersModel.OriginalLetters.Subscribe( text => {
             _originalLettersTextView.Initialize(text);
+            _typingLettersModel.Initialize();
             _currentLettersTextView.Initialize();
             _phoneWindowView.InitializeAsSendView();
             _leftGroupView.InitializeAsOriginalLettersView();

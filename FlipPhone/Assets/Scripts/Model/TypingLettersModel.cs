@@ -62,6 +62,12 @@ public class TypingLettersModel : MonoBehaviour
         { "82", new string[] { "ょ", "よ" } },
     };
 
+    public void Initialize()
+    {
+        _letters = "";
+        _prevType = "";
+    }
+
     public void UpdateLetters(string type)
     {
 
