@@ -48,6 +48,10 @@ public class MainGameController : MonoBehaviour
                 case 2:
                     InitializeSelections(currentMessageDTO);
                     break;
+                // 終わりの時
+                case 3:
+                    InitializeSelections(currentMessageDTO);
+                    break;
             }
         }
     }

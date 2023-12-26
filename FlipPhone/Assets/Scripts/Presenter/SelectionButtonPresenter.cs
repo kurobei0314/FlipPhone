@@ -39,7 +39,10 @@ public class SelectionButtonPresenter : MonoBehaviour
         }).AddTo(this);
 
         _receivingGroupView.FinishAnimObservable.Subscribe(_ => {
-            _leftGroupView.SelectionViewActive();
+            if (_selectionButtonModel.IsActiveSelectionView())
+            {
+                _leftGroupView.SelectionViewActive();
+            }
         });
     }
 }

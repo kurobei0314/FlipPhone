@@ -15,5 +15,4 @@ public class OriginalLettersModel : MonoBehaviour
     }
 
     public bool IsSameCurrentLetters(string currentLetters) => _originalLetters.Value == currentLetters;
-    
 }

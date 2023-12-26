@@ -145,7 +145,7 @@ MonoBehaviour:
   - id: 17
     type: 1
     message1: "\u6016\u3044\u304B\u3082\u3057\u308C\u306A\u3044\u3051\u3069\u672C\u5F53\u306E\u3053\u3068\u3092\u8A00\u3063\u3066\u308B\u3060\u3051\u3002\n\u9999\u7E54\u306F\u6B7B"
-    step_num1: 0
+    step_num1: 20
     message2: 
     step_num2: 0
     message3: 
@@ -153,7 +153,7 @@ MonoBehaviour:
   - id: 18
     type: 1
     message1: "\u4FE1\u3058\u3089\u308C\u306A\u3044\u304B\u3082\u3057\u308C\u306A\u3044\u3051\u3069\u672C\u5F53\u306E\u3053\u3068\u3092\u8A00\u3063\u3066\u308B\u3060\u3051\u3002\n\u9999\u7E54\u306F\u6B7B"
-    step_num1: 0
+    step_num1: 20
     message2: 
     step_num2: 0
     message3: 
@@ -161,6 +161,14 @@ MonoBehaviour:
   - id: 19
     type: 1
     message1: "\u672C\u5F53\u306E\u3053\u3068\u3092\u8A00\u3063\u3066\u308B\u3060\u3051\u3002\n\u9999\u7E54\u306F\u6B7B"
+    step_num1: 20
+    message2: 
+    step_num2: 0
+    message3: 
+    step_num3: 0
+  - id: 20
+    type: 3
+    message1: 
     step_num1: 0
     message2: 
     step_num2: 0
