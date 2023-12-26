@@ -26,6 +26,7 @@ public class SelectionButtonView : MonoBehaviour
 
     public void OnClick(int index)
     {
+        AudioManager.Instance.PlaySE("button2");
         onClickItemSubject.OnNext(index);
     }
 }

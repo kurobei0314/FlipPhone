@@ -26,6 +26,7 @@ public class MainGameController : MonoBehaviour
         });
 
         MainGameLoop();
+        AudioManager.Instance.PlayBGM("Main");
         _receivingGroupView.PlayAnim();
     }
 

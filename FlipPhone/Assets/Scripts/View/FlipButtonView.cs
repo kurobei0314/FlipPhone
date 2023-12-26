@@ -12,6 +12,7 @@ public class FlipButtonView : MonoBehaviour
 
     public void OnClick(string type)
     {
+        AudioManager.Instance.PlaySE("button1");
         onClickItemSubject.OnNext(type);
     }
 }

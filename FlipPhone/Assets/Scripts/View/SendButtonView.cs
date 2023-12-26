@@ -24,6 +24,7 @@ public class SendButtonView : MonoBehaviour
 
     public void OnClick()
     {
+        AudioManager.Instance.PlaySE("button1");
         onClickSendButtonSubject.OnNext(Unit.Default);
     }
 }
