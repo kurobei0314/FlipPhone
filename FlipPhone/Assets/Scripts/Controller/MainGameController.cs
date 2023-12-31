@@ -12,6 +12,7 @@ public class MainGameController : MonoBehaviour
     [SerializeField] private ReceiveLetterTextView _receiveLetterText = null;
     [SerializeField] private ReceivingGroupView _receivingGroupView = null;
     [SerializeField] private SendingGroupView _sendingGroupView = null;
+    [SerializeField] private GameObject _noBatteryGroupGO = null;
 
     [SerializeField] private SelectionButtonModel _selectionButtonModel;
     private int currentId = 1;
@@ -25,6 +26,7 @@ public class MainGameController : MonoBehaviour
             MainGameLoop();
         });
 
+        //_noBatteryGroupGO.SetActive(false);
         MainGameLoop();
         AudioManager.Instance.PlayBGM("Main");
         _receivingGroupView.PlayAnim();
@@ -52,6 +54,7 @@ public class MainGameController : MonoBehaviour
                 // 終わりの時
                 case 3:
                     InitializeSelections(currentMessageDTO);
+                    StartCoroutine("PlayNoBatteryAnim");
                     break;
             }
         }
@@ -62,6 +65,12 @@ public class MainGameController : MonoBehaviour
         _sendingGroupView.PlayAnim();
         yield return new WaitForSeconds(0.7f);
         _receivingGroupView.PlayAnim();
+    }
+
+    private IEnumerator PlayNoBatteryAnim()
+    {
+        yield return new WaitForSeconds(5.0f);
+        _noBatteryGroupGO.SetActive(true);
     }
 
     private void InitializeReceiveLetterText(MessageDTO currentMessageDTO)
